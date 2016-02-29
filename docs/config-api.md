@@ -4,7 +4,7 @@
 
 Once SystemJS has loaded, configuration can be set on SystemJS by using the configuration function `System.config`:
 
-SystemJSがロードされたら、設定用functionの`System.config`を利用することでSystemJS上の設定を変更することができます。
+SystemJSがロードされたら、定義用functionの`System.config`を利用することでSystemJS上の設定を変更することができます。
 
 ```javascript
 System.config({
@@ -15,12 +15,12 @@ System.config({
 
 This is a helper function which normalizes configuration and sets configuration properties on the SystemJS instance.
 
-これは設定を統一し、SystemJSのインスタンスに対して設定するためのヘルパーfunctionです。
+これは設定を統一し、SystemJSのインスタンスに対して定義を設定するためのヘルパーfunctionです。
 
 `System.config({ prop: 'value' })` is mostly equivalent to `System.prop = value` except that it will extend configuration objects,
 and certain properties will be normalized to be stored correctly.
 
-`System.config({ prop: 'value' })`は設定Objectを継承するということを除くと、ほぼ`System.prop = value`と同等の意味です。
+`System.config({ prop: 'value' })`は定義オブジェクトを継承するということを除くと、ほぼ`System.prop = value`と同等の意味です。
 そして、正しいプロパティは統一された形で正確に保存されます。
 
 For this reason it is usually advisable to use `System.config` instead of setting instance properties directly.
@@ -216,6 +216,8 @@ Default: `{}`
 
 Packages provide a convenience for setting meta and map configuration that is specific to a common path.
 
+Packagesは特定の共通パスに対するmetaとmap定義を設定するための便利な機能です。
+
 In addition packages allow for setting contextual map configuration which only applies within the package itself.
 This allows for full dependency encapsulation without always needing to have all dependencies in a global namespace.
 
@@ -254,6 +256,13 @@ System.config({
 * `map`: Local and relative map configurations scoped to the package. Apply for subpaths as well.
 * `meta`: Package-scoped meta configuration with wildcard support. Modules are subpaths within the package path.
   This also provides an opt-out mechanism for `defaultExtension`, by adding modules here that should skip extension adding.
+
+* `main`: packageの中のメインのエントリポイントです。（`import 'local/package'`の場合、`import 'local/package/index.js'`と評価されます。）
+* `format`:packageのモジュールフォーマットです。[Module Formats](https://github.com/systemjs/systemjs/blob/master/docs/module-formats.md)を参照してください。
+* `defaultExtension`:package内でモジュールを要求する場合に付け加えるデフォルトの拡張子です。`defaultExtension: false`を設定することで`defaultJSExtensions`が有効な場合、拡張子を付与する挙動を拒否することができます。
+* `map`:package内部でのローカルで相対的は変換定義です。
+* `meta`:package内部でのmeta定義です。ワイルドカードをサポートしています。モジュールはpackageのパスのサブパスに存在します。
+  `defaultExtension`を同様の拒否メカニズムを利用して、モジュールが追加される際の拡張子付与をスキップすることができます。
 
 #### paths
 Type: `Object`
