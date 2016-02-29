@@ -4,6 +4,8 @@
 
 Once SystemJS has loaded, configuration can be set on SystemJS by using the configuration function `System.config`:
 
+SystemJSがロードされたら、設定用functionの`System.config`を利用することでSystemJS上の設定を変更することができます。
+
 ```javascript
 System.config({
   configA: {},
@@ -13,10 +15,17 @@ System.config({
 
 This is a helper function which normalizes configuration and sets configuration properties on the SystemJS instance.
 
+これは設定を統一し、SystemJSのインスタンスに対して設定するためのヘルパーfunctionです。
+
 `System.config({ prop: 'value' })` is mostly equivalent to `System.prop = value` except that it will extend configuration objects,
 and certain properties will be normalized to be stored correctly.
 
+`System.config({ prop: 'value' })`は設定Objectを継承するということを除くと、ほぼ`System.prop = value`と同等の意味です。
+そして、正しいプロパティは正規化され正しく保存されます。
+
 For this reason it is usually advisable to use `System.config` instead of setting instance properties directly.
+
+これらに理由により、通常はインスタンスのプロパティを直接操作するより、`System.config`を利用する方が良いでしょう。
 
 ### Configuration Options
 
