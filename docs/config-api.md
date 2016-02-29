@@ -21,7 +21,7 @@ This is a helper function which normalizes configuration and sets configuration 
 and certain properties will be normalized to be stored correctly.
 
 `System.config({ prop: 'value' })`は設定Objectを継承するということを除くと、ほぼ`System.prop = value`と同等の意味です。
-そして、正しいプロパティは正規化され正しく保存されます。
+そして、正しいプロパティは統一された形で正確に保存されます。
 
 For this reason it is usually advisable to use `System.config` instead of setting instance properties directly.
 
@@ -47,6 +47,8 @@ Default: `{}`
 
 Set the Babel transpiler options when [System.transpiler](#transpiler) is set to `babel`:
 
+[System.transpiler](#transpiler)に`babel`を設定した場合、Babelトランスパイラオプションを設定します。
+
 ```javascript
 System.config({
   babelOptions: {
@@ -56,6 +58,8 @@ System.config({
 ```
 
 A list of options is available in the [Babel project documentation](https://babeljs.io/docs/usage/options/).
+
+オプションの一覧は[Babel project documentation](https://babeljs.io/docs/usage/options/)を参照してください。
 
 #### bundle
 Type: `Object`
